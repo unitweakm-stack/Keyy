@@ -7,27 +7,22 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: ⚙️ Theos + FIXED ldid
+    - name: ⚙️ Theos o'rnatish (ldid'siz)
       run: |
         git clone --recursive https://github.com/theos/theos.git ~/theos
-        
-        # Theos'ning o'z ldid'si (eng ishonchli)
-        git clone https://github.com/theos/sdks.git ~/theos/sdks
-        cd ~/theos/sdks
-        git checkout master
         
         # PATH
         echo "THEOS=~/theos" >> $GITHUB_ENV
         echo "~/theos/bin" >> $GITHUB_PATH
 
-    - name: 🧹 Build
+    - name: 🧹 Build (unsigned)
       run: |
         rm -rf .theos obj/
-        make clean all
+        make clean all LDFLAGS="-no-ldid"
       env:
         THEOS: ~/theos
 
     - uses: actions/upload-artifact@v4
       with:
-        name: BackeerLoader
-        path: .theos/obj/debug/BackeerLoader.dylib
+        name: BackeerLoader-Unsigned
+        path: .theos/obj/debug/BackeerLoader.dylib.unsigned
