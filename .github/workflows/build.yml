@@ -1,14 +1,17 @@
 name: Build Tweak
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: macos-latest   # yoki ubuntu-latest, macOS’da ldid brew bilan o‘rnatiladi
+    runs-on: macos-latest   # yoki ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Theos
-        uses: theos/actions/setup-theos@v2
+        uses: theos/setup-theos@v2
+
       - name: Install ldid (agar kerak bo‘lsa)
         run: |
           if [[ "$RUNNER_OS" == "macOS" ]]; then
@@ -16,7 +19,8 @@ jobs:
           else
             sudo apt-get update && sudo apt-get install -y ldid
           fi
-      - name: Build
+
+      - name: Build tweak
         run: |
           export THEOS=$HOME/theos
           make DEBUG=0 FINALPACKAGE=1
