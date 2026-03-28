@@ -13,23 +13,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Theos
+      - name: Setup Theos
         run: |
-          export THEOS=~/theos
-          git clone --recursive https://github.com/theos/theos.git <LaTex>$THEOS
-          echo "THEOS=~/theos" >> $</LaTex>GITHUB_ENV
-
-      - name: Setup iOS SDK
-        run: |
-          # SDK-larni yuklash (iOS 14.5 SDK ko'pincha barqaror ishlaydi)
+          # Theos-ni yuklash
+          git clone --recursive https://github.com/theos/theos.git ~/theos
+          # SDK-larni yuklash (iOS dylib yasash uchun zarur)
           git clone https://github.com/theos/sdks.git ~/theos/sdks
+          # Atrof-muhit o'zgaruvchilarini sozlash
+          echo "THEOS=~/theos" >> <LaTex>$GITHUB_ENV
+          echo "~/theos/bin" >> $</LaTex>GITHUB_PATH
 
       - name: Build Dylib
         run: |
-          # Makefile-dagi ARCHS va TARGET-ga qarab build qilish
-          make
+          # Loyihani kompyutsiya qilish
+          make clean all
         env:
-          THEOS: ${{ env.THEOS }}
+          THEOS: ~/theos
 
       - name: Upload Dylib
         uses: actions/upload-artifact@v4
