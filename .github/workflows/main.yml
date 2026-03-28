@@ -15,24 +15,24 @@ jobs:
 
       - name: Setup Theos
         run: |
-          # Theos-ni yuklash (submodule-lar bilan birga)
+          # Theos-ni uy papkasiga yuklash
           git clone --recursive https://github.com/theos/theos.git ~/theos
           
-          # SDK-larni yuklash
+          # SDK-larni yuklash (Dylib yasash uchun shart)
           rm -rf ~/theos/sdks
           git clone https://github.com/theos/sdks.git ~/theos/sdks
           
-          # THEOS muhitini sozlash
-          echo "THEOS=~/theos" >> <LaTex>$GITHUB_ENV
-          echo "$</LaTex>HOME/theos/bin" >> $GITHUB_PATH
+          # Muhitni sozlash
+          echo "THEOS=<LaTex>$HOME/theos" >> $</LaTex>GITHUB_ENV
+          echo "<LaTex>$HOME/theos/bin" >> $</LaTex>GITHUB_PATH
 
       - name: Build Dylib
         run: |
-          # Makefile-dagi xatoliklarni oldini olish uchun THEOS-ni aniq ko'rsatish
-          export THEOS=~/theos
-          make clean all
+          # Theos yo'lini aniq ko'rsatib build qilish
+          export THEOS=<LaTex>$HOME/theos
+          $</LaTex>THEOS/bin/make clean all
         env:
-          THEOS: ~/theos
+          THEOS: <LaTex>${{ env.THEOS }}
 
       - name: Upload Dylib
         uses: actions/upload-artifact@v4
