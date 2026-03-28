@@ -1,28 +1,22 @@
-name: 🔐 BackeerLoader Build
-on: [push, workflow_dispatch]
+name: Build Tweak
+
+on: [push]
 
 jobs:
   build:
-    runs-on: macos-14
+    runs-on: macos-latest   # yoki ubuntu-latest, macOS’da ldid brew bilan o‘rnatiladi
     steps:
-    - uses: actions/checkout@v4
-
-    - name: ⚙️ Theos o'rnatish (ldid'siz)
-      run: |
-        git clone --recursive https://github.com/theos/theos.git ~/theos
-        
-        # PATH
-        echo "THEOS=~/theos" >> $GITHUB_ENV
-        echo "~/theos/bin" >> $GITHUB_PATH
-
-    - name: 🧹 Build (unsigned)
-      run: |
-        rm -rf .theos obj/
-        make clean all LDFLAGS="-no-ldid"
-      env:
-        THEOS: ~/theos
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: BackeerLoader-Unsigned
-        path: .theos/obj/debug/BackeerLoader.dylib.unsigned
+      - uses: actions/checkout@v4
+      - name: Setup Theos
+        uses: theos/actions/setup-theos@v2
+      - name: Install ldid (agar kerak bo‘lsa)
+        run: |
+          if [[ "$RUNNER_OS" == "macOS" ]]; then
+            brew install ldid
+          else
+            sudo apt-get update && sudo apt-get install -y ldid
+          fi
+      - name: Build
+        run: |
+          export THEOS=$HOME/theos
+          make DEBUG=0 FINALPACKAGE=1
