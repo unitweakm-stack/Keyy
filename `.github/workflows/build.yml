@@ -1,0 +1,36 @@
+name: 🔐 BackeerLoader Build
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: 📥 Kodni yuklash
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Theos + ldid o'rnatish
+        run: |
+          # Theos yuklash
+          git clone --recursive https://github.com/theos/theos.git ~/theos
+          
+          # ldid — to'g'ri joyga
+          curl -LO https://github.com/optimo/ldid/releases/download/2.1.3/ldid
+          chmod +x ldid
+          mv ldid ~/theos/bin/ldid
+          
+          # PATH sozlash
+          echo "THEOS=~/theos" >> $GITHUB_ENV
+          echo "~/theos/bin" >> $GITHUB_PATH
+
+      - name: 🧹 Tozalash & Build
+        run: |
+          rm -rf .theos obj/
+          make clean all
+        env:
+          THEOS: ~/theos
+
+      - name: 📤 Dylib yuklab olish
+        uses: actions/upload-artifact@v4
+        with:
+          name: BackeerLoader-Signed
+          path: .theos/obj/debug/BackeerLoader.dylib
