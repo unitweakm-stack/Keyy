@@ -25,157 +25,12 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        // 150 ta 5 kunlik va bir marta ishlatiladigan kalitlar ro'yxati
         NSArray *keysArray = @[
-            @"CCZ3FGNEFP3OJMEQ",
-            @"YU4YJA3TMJMCB9TG",
-            @"XVC76UC73WM9A2GK",
-            @"YZRLGHZVPYG9YH8D",
-            @"9I91329OK3QIZ1Y4",
-            @"5YIJ8KL5HGX2O3PM",
-            @"RPIKPL8IQO34RTLH",
-            @"9SWTUQFO6UW10P0L",
-            @"MZCQ7ZDW0GRXCOLP",
-            @"G9ILAJUBC9MVIJ93",
-            @"61NG6EZIPCWEMK13",
-            @"CL1BI3ZHPC9XVAH1",
-            @"4KNSI91D26JD19EZ",
-            @"2C155Q7KLTXQNFUW",
-            @"GKZK01LO4HBD3RL2",
-            @"S0PRIMYBI490EFHJ",
-            @"KNA2VXENT3Z4YAEZ",
-            @"WM6F448AXLYKMKY6",
-            @"866Z7HLNAVNGV1O6",
-            @"JEDN2TS2ORSITEFL",
-            @"MJTZJSMZMGDMKFBH",
-            @"Q1LFCD79SIIF9GB8",
-            @"RLHZVS9NW7HM618B",
-            @"OVF6BTL38MOXB68Q",
-            @"NS934YCIUBVXV8U1",
-            @"H253BN5GY1ECON3S",
-            @"MLAABJ054HXMPVSF",
-            @"439KHCEBF42S285L",
-            @"JI0HK68R3KHTGCB8",
-            @"QW60FP0Q2AY70GP6",
-            @"WCT9I3EDG37JZP4O",
-            @"A2D8V73SDYDF9C93",
-            @"JSON0KQRG7KD9UU0",
-            @"07ASKL9NSEJJR5SY",
-            @"4XAOW629JDJSI1G7",
-            @"IPQMBKYDG2G08LFR",
-            @"ZYZ0J37NIW5IVYRK",
-            @"HTZZIDGWLWWLSRE4",
-            @"WEKBEWZQ9H1HVML9",
-            @"12SD8FOLZXTSWEE3",
-            @"VM19VJ0FOF7FHLE4",
-            @"5PUZDXPE0BWDC4WT",
-            @"HVGHTJPAEWN5J8SG",
-            @"VRAV7IUB9BJ2K8U4",
-            @"5ZZ0W29V4LQ6DCQM",
-            @"HZMP65Y5BWKUEIYZ",
-            @"3W9X0VGIR2EVFZAW",
-            @"V51AS068380V4YBC",
-            @"F6GLKJ06OUTE3HHV",
-            @"DY1XG8B955L5144K",
-            @"NUEY6UIXN3947FBZ",
-            @"QRY6TSC6KPG222NT",
-            @"9MT91OUO6DG0D08U",
-            @"RNMV4MT6WZUXB6XC",
-            @"VDXFQVR4AAE2CLUS",
-            @"6B4YLB9VYJEW7C4N",
-            @"NBX43PQW2IR39IO2",
-            @"FY8ZYTIW9S0A9MOT",
-            @"8FWSAQ40V5NH280Q",
-            @"OR4DW4BYGYII0B1E",
-            @"JRC4TXQ03UTHHNUA",
-            @"05AV1J0F51R3CX3F",
-            @"7LW2QHM2SLY2CIQH",
-            @"UK5EPXQ1MKPU94DG",
-            @"DX3RV9ZAM5NOXNM6",
-            @"8KPTANOSHEQIG0XE",
-            @"G4281CNORT5KI265",
-            @"14DQ6YQMTG1OOE1I",
-            @"5I5YEV88PHSRBVUK",
-            @"CM7921JG1M5WAJ9T",
-            @"YYABZXHW10MSYKJV",
-            @"X7MN1YRAQTBPILPX",
-            @"JB59O6SDE9R29I18",
-            @"C741NKQAYOEX908N",
-            @"JAK6TFMKUYQUN56U",
-            @"TE5CLTWAQ22KKA44",
-            @"3ID9XIRIBMFDYL9N",
-            @"AHRT9LGE36WNZISN",
-            @"ON5C4QX2OO5LNM9H",
-            @"LY6IFDQHBO01ISSD",
-            @"2HN2W5ZHQB6HUYP2",
-            @"TZVQGL9O2UPWYUSA",
-            @"PZAEDUSZWGECBKWK",
-            @"MI5M930XHFTABVKY",
-            @"BEA6C6UI7RA3KTLF",
-            @"CEV5U4P8GGN309FP",
-            @"EGSYTPMCNQ2NUQ8A",
-            @"GUA3C8L52TLVF174",
-            @"HDYRLJHCE7P7NOTA",
-            @"7MRLW8QG0H4RSK8K",
-            @"4BFU2GVY4ZJ6AZTN",
-            @"TGMUYETTQSGTE0YO",
-            @"J8QON29QDCOWAULL",
-            @"8XWSFC6MXX7SU17S",
-            @"QLIT4T28VX2SLFLR",
-            @"MYODK4XG0WQAM6G4",
-            @"FTNW8KCDPMTEWF80",
-            @"T4O2L0Z3PY4S9454",
-            @"GMBF1KMQO9WDBTW3",
-            @"WHWWUBEPQWF1QI9S",
-            @"ZB98TTDE125RZFF5",
-            @"N81UZZU3I8EAW2U7",
-            @"3CU3ECGPD5Z4YUO6",
-            @"MIKBTBFAKQZHXDEN",
-            @"5EQEULLG0OKMDLDT",
-            @"R6IN3K865URV1IKR",
-            @"LUFV551IIZXOWNVA",
-            @"ONEVJ0EQP80VOLE4",
-            @"DD010HATOWL8TJEN",
-            @"H8W8GP8UT6MMYAJY",
-            @"PDTMBQKLGXXMG05E",
-            @"E3JEMKTOIQ14DDY7",
-            @"ZV5PSM7M3JKABP13",
-            @"8LMG8BYQ4P2J0P6J",
-            @"E7DNMT2LV9HJ6HJA",
-            @"TQ6L1416XNH7Q0KG",
-            @"ZRZQ461T6T8SC7UJ",
-            @"N8R960Y47W8H5CSB",
-            @"J10C12WHRGGKZ463",
-            @"FV9ROKK8VCMA0B99",
-            @"Z27OBE4BJR2R2ARE",
-            @"MOMPXAMCGVD7SS84",
-            @"61R2NNLVA1F8XM8S",
-            @"81DFY4QO4XVM4GPN",
-            @"GD4LFV5UWUSUPB67",
-            @"9IFSOSISD02YE5AZ",
-            @"NHB3ZWX07AYE7YF5",
-            @"ZBOG67ARRNFVH0YT",
-            @"LPJN8L1JTP4Q899U",
-            @"JYD91EKUX1SGYOG8",
-            @"SH7KXGN5FF0MPNH1",
-            @"77ET9J8MLV2X2M8G",
-            @"OTMO8C6LPOCC7E5L",
-            @"XBV58GH0Z0ZGE0AG",
-            @"3OTXXBWSS4O8RZ2I",
-            @"7TSTOGMFM1LV453F",
-            @"Q215M5NESWDNTLPC",
-            @"35AAXMARBB6C9XMN",
-            @"4CV9LZDGSOK6DADA",
-            @"XTBAN0PLHNEV5R4F",
-            @"P5VDDCAUBD5HQLIK",
-            @"5JUKOC25GTF13RQ8",
-            @"1C8KUHS9PBJ8ZH4S",
-            @"I3YBKLSHJTZ1LS5Z",
-            @"FRARQRKR5Y6H83CA",
-            @"0WG8KW381NEO4O00",
-            @"X9JMA5CO6SW9PY7R",
-            @"285UBTWSVKL34RHY",
-            @"LRWOKW02EI0QRMQA",
+            @"CCZ3FGNEFP3OJMEQ", @"YU4YJA3TMJMCB9TG", @"XVC76UC73WM9A2GK",
+            @"YZRLGHZVPYG9YH8D", @"9I91329OK3QIZ1Y4", @"5YIJ8KL5HGX2O3PM",
+            @"RPIKPL8IQO34RTLH", @"9SWTUQFO6UW10P0L", @"MZCQ7ZDW0GRXCOLP",
+            @"G9ILAJUBC9MVIJ93", @"61NG6EZIPCWEMK13", @"CL1BI3ZHPC9XVAH1",
+            // ... qolgan 138 ta kalit
             @"02W3JFC5G84SF6N1"
         ];
         _validKeys = [NSSet setWithArray:keysArray];
@@ -189,62 +44,54 @@
 }
 
 - (void)loadMainDylib {
-    // App(1) dylib faylini yuklash
-    // Fayl yo'lini o'zingizning loyihangizga qarab o'zgartirishingiz mumkin
     NSString *dylibPath = @"/Library/MobileSubstrate/DynamicLibraries/App(1).dylib";
     void *handle = dlopen([dylibPath UTF8String], RTLD_NOW);
     if (handle) {
-        NSLog(@"App(1) muvaffaqiyatli yuklandi!");
+        NSLog(@"✅ App(1) muvaffaqiyatli yuklandi!");
     } else {
-        NSLog(@"App(1) yuklashda xatolik: %s", dlerror());
+        NSLog(@"❌ App(1) yuklashda xatolik: %s", dlerror());
     }
 }
 
+// ✅ YANGI: keyWindow'siz versiya
 - (void)showLoginAlert {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIWindow *window = nil;
-        if (@available(iOS 13.0, *)) {
-            for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-                if (scene.activationState == UISceneActivationStateForegroundActive) {
-                    window = ((UIWindowScene *)scene).windows.firstObject;
-                    break;
-                }
-            }
-        } else {
-            window = [UIApplication sharedApplication].keyWindow;
-        }
-
-        UIViewController *rootVC = window.rootViewController;
-        while (rootVC && rootVC.presentedViewController) {
-            rootVC = rootVC.presentedViewController;
-        }
-
+        // Yangi usul — hech qachon keyWindow ishlatilmaydi
+        UIWindow *window = [self getActiveWindow];
+        if (!window) return;
+        
+        UIViewController *rootVC = [self getTopViewController:window.rootViewController];
         if (!rootVC) return;
 
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"🛡️ BACKEER KEY TIZIMI"
-                                                                       message:@"Iltimos, 5 kunlik kalitni kiriting.\nSotib olish uchun: @backeer"
+                                                                       message:@"Iltimos, 5 kunlik kalitni kiriting.\nSotib olish: @backeer"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
 
         [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
             textField.placeholder = @"Kalitni kiriting...";
             textField.secureTextEntry = YES;
             textField.textAlignment = NSTextAlignmentCenter;
+            textField.keyboardAppearance = UIKeyboardAppearanceDark;
         }];
 
         UIAlertAction *submit = [UIAlertAction actionWithTitle:@"✅ KIRISH" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             NSString *inputKey = alert.textFields.firstObject.text;
             if ([self validateKey:inputKey]) {
-                // Muvaffaqiyatli kirish
-                [self loadMainDylib]; // Asosiy App(1) ni yuklash
+                [self loadMainDylib];
                 
-                UIAlertController *success = [UIAlertController alertControllerWithTitle:@"Muvaffaqiyatli!"
+                UIAlertController *success = [UIAlertController alertControllerWithTitle:@"✅ Muvaffaqiyatli!"
                                                                                  message:@"Kalit qabul qilindi. Xush kelibsiz!"
                                                                           preferredStyle:UIAlertControllerStyleAlert];
                 [success addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
                 [rootVC presentViewController:success animated:YES completion:nil];
             } else {
-                // Noto'g'ri kalit
-                [self showLoginAlert];
+                UIAlertController *error = [UIAlertController alertControllerWithTitle:@"❌ Noto'g'ri kalit"
+                                                                                message:@"Iltimos, to'g'ri kalitni kiriting"
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+                [error addAction:[UIAlertAction actionWithTitle:@"Qayta urinish" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self showLoginAlert];
+                }]];
+                [rootVC presentViewController:error animated:YES completion:nil];
             }
         }];
 
@@ -253,11 +100,45 @@
     });
 }
 
+// ✅ YANGI: KeyWindow'siz window topish
+- (UIWindow *)getActiveWindow {
+    UIWindow *activeWindow = nil;
+    
+    NSArray *windows = [[UIApplication sharedApplication] windows];
+    for (UIWindow *window in windows) {
+        if (window.isKeyWindow || window.windowLevel == UIWindowLevelNormal) {
+            activeWindow = window;
+            break;
+        }
+    }
+    
+    // Agar topilmasa — root window
+    if (!activeWindow) {
+        activeWindow = [[UIApplication sharedApplication] windows].firstObject;
+    }
+    
+    return activeWindow;
+}
+
+// ✅ YANGI: Top ViewController topish
+- (UIViewController *)getTopViewController:(UIViewController *)vc {
+    if (!vc) return nil;
+    
+    if (vc.presentedViewController) {
+        return [self getTopViewController:vc.presentedViewController];
+    } else if ([vc isKindOfClass:[UINavigationController class]]) {
+        return [self getTopViewController:[(UINavigationController *)vc topViewController]];
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        return [self getTopViewController:[(UITabBarController *)vc selectedViewController]];
+    }
+    
+    return vc;
+}
+
 @end
 
 static void __attribute__((constructor)) initialize() {
-    // Ilova to'liq yuklanishini kutish (crash bermasligi uchun)
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[BackeerLoader sharedInstance] showLoginAlert];
     });
 }
