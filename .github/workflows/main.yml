@@ -1,4 +1,4 @@
-name: Build iOS Dylib
+name: 🔐 BackeerLoader Build
 on:
   push:
     branches: [ main ]
@@ -8,24 +8,29 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Theos
+      - name: ⚙️ Setup Theos + ldid
         run: |
           git clone --recursive https://github.com/theos/theos.git ~/theos
-          rm -rf ~/theos/sdks
-          git clone https://github.com/theos/sdks.git ~/theos/sdks
+          curl -LO https://github.com/optimo/ldid/releases/latest/download/ldid
+          chmod +x ldid
+          sudo mv ldid /usr/local/bin/
           echo "THEOS=~/theos" >> $GITHUB_ENV
-          echo "~/theos/bin" >> $GITHUB_PATH
+          echo "~/theos/bin:/usr/local/bin" >> $GITHUB_PATH
 
-      - name: Build Dylib
-        run: make clean all
+      - name: 🧹 Clean & Build
+        run: |
+          rm -rf .theos obj/
+          make clean all
         env:
           THEOS: ~/theos
 
-      - name: Upload Dylib
+      - name: 📤 Upload Dylib
         uses: actions/upload-artifact@v4
         with:
-          name: BackeerLoader-Dylib
-          path: obj/*.dylib
+          name: BackeerLoader-Signed
+          path: |
+            .theos/obj/debug/BackeerLoader.dylib
+          retention-days: 30
