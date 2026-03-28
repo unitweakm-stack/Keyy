@@ -15,13 +15,20 @@ jobs:
 
       - name: Setup Theos
         run: |
-          # Theos-ni yuklash
+          # Theos-ni yuklash (agar mavjud bo'lmasa)
           git clone --recursive https://github.com/theos/theos.git ~/theos
-          # SDK-larni yuklash (iOS dylib yasash uchun zarur)
-          git clone https://github.com/theos/sdks.git ~/theos/sdks
+          
+          # SDK-larni tekshirish va yuklash
+          if [ ! -d "~/theos/sdks" ] || [ -z "$(ls -A ~/theos/sdks)" ]; then
+            echo "SDK-lar yuklanmoqda..."
+            git clone https://github.com/theos/sdks.git ~/theos/sdks
+          else
+            echo "SDK-lar allaqachon mavjud, yuklash shart emas."
+          fi
+          
           # Atrof-muhit o'zgaruvchilarini sozlash
-          echo "THEOS=~/theos" >> <LaTex>$GITHUB_ENV
-          echo "~/theos/bin" >> $</LaTex>GITHUB_PATH
+          echo "THEOS=~/theos" >> $GITHUB_ENV
+          echo "~/theos/bin" >> $GITHUB_PATH
 
       - name: Build Dylib
         run: |
