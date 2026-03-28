@@ -15,20 +15,21 @@ jobs:
 
       - name: Setup Theos
         run: |
-          # Theos-ni yuklash
+          # Theos-ni yuklash (submodule-lar bilan birga)
           git clone --recursive https://github.com/theos/theos.git ~/theos
           
-          # Mavjud sdks papkasini o'chirish va yangidan yuklash (xatolikni oldini olish uchun)
+          # SDK-larni yuklash
           rm -rf ~/theos/sdks
           git clone https://github.com/theos/sdks.git ~/theos/sdks
           
-          # Atrof-muhit o'zgaruvchilarini sozlama qilish
+          # THEOS muhitini sozlash
           echo "THEOS=~/theos" >> <LaTex>$GITHUB_ENV
-          echo "~/theos/bin" >> $</LaTex>GITHUB_PATH
+          echo "$</LaTex>HOME/theos/bin" >> $GITHUB_PATH
 
       - name: Build Dylib
         run: |
-          # Loyihani kompyutsiya qilish
+          # Makefile-dagi xatoliklarni oldini olish uchun THEOS-ni aniq ko'rsatish
+          export THEOS=~/theos
           make clean all
         env:
           THEOS: ~/theos
