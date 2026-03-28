@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Theos
         run: |
@@ -21,16 +21,18 @@ jobs:
 
       - name: Setup iOS SDK
         run: |
+          # SDK-larni yuklash (iOS 14.5 SDK ko'pincha barqaror ishlaydi)
           git clone https://github.com/theos/sdks.git ~/theos/sdks
 
       - name: Build Dylib
         run: |
+          # Makefile-dagi ARCHS va TARGET-ga qarab build qilish
           make
         env:
           THEOS: ${{ env.THEOS }}
 
       - name: Upload Dylib
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: BackeerLoader-Dylib
           path: obj/*.dylib
