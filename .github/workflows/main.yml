@@ -1,0 +1,36 @@
+name: Build iOS Dylib
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Theos
+        run: |
+          export THEOS=~/theos
+          git clone --recursive https://github.com/theos/theos.git <LaTex>$THEOS
+          echo "THEOS=~/theos" >> $</LaTex>GITHUB_ENV
+
+      - name: Setup iOS SDK
+        run: |
+          git clone https://github.com/theos/sdks.git ~/theos/sdks
+
+      - name: Build Dylib
+        run: |
+          make
+        env:
+          THEOS: ${{ env.THEOS }}
+
+      - name: Upload Dylib
+        uses: actions/upload-artifact@v3
+        with:
+          name: BackeerLoader-Dylib
+          path: obj/*.dylib
