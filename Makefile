@@ -2,10 +2,10 @@ export THEOS = /Users/runner/theos
 ARCHS = arm64 arm64e
 TARGET = iphone:clang:latest:13.0
 
-include <LaTex>$(THEOS)/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = BackeerLoader
 BackeerLoader_FILES = Tweak.m
 BackeerLoader_FRAMEWORKS = UIKit Foundation
 
-include $</LaTex>(THEOS_MAKE_PATH)/tweak.mk
+include $(THEOS_MAKE_PATH)/tweak.mk
