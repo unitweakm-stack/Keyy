@@ -1,5 +1,4 @@
 name: Build iOS Dylib
-
 on:
   push:
     branches: [ main ]
@@ -8,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,13 +16,11 @@ jobs:
           git clone --recursive https://github.com/theos/theos.git ~/theos
           rm -rf ~/theos/sdks
           git clone https://github.com/theos/sdks.git ~/theos/sdks
-          echo "THEOS=~/theos" >> <LaTex>$GITHUB_ENV
-          echo "~/theos/bin" >> $</LaTex>GITHUB_PATH
+          echo "THEOS=~/theos" >> $GITHUB_ENV
+          echo "~/theos/bin" >> $GITHUB_PATH
 
       - name: Build Dylib
-        run: |
-          export THEOS=~/theos
-          make clean all
+        run: make clean all
         env:
           THEOS: ~/theos
 
